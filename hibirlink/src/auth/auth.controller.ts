@@ -11,12 +11,12 @@ export class AuthController {
     private readonly authService: AuthService,
   ) {}
 
-  @Post()
+  @Post('signup')
   signUp(@Body() createUserDto: CreateUserDto){
     return this.authService.signup(createUserDto)
   }
 
-  @Post()
+  @Post('signin')
   @UseGuards(LocalStrategyAuth)
   signIn(@Body() loginDto: LoginDto){
     return this.authService.signin(loginDto)
